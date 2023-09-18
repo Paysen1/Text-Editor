@@ -10,24 +10,25 @@ module.exports = () => {
   return {
     mode: 'development',
     entry: {
-      main: './src/js/index.js',
-      install: './src/js/install.js'
+      main: './client/src/js/index.js',
+      install: './client/src/js/install.js'
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'client', 'dist'),
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './index.html', //says doesnt exist?
+        template: './client/index.html', //says doesnt exist?
+        filename: 'index.html',
         title: 'Webpack Plugin',
       }),
       new WebpackPwaManifest ({
         name: 'Text-Editor',
-        short_name: 'PWA',
+        short_name: 'J.A.T.E',
         description: 'This is a text editor',
-        background_color: '#ffffff',
-        theme_color: '#000000',
+        background_color: '#225ca3',
+        theme_color: '#225ca3',
         icons: [
           {
             src: path.resolve(__dirname, 'src/images/logo.png' ),
@@ -37,7 +38,7 @@ module.exports = () => {
         ]
       }),
       new InjectManifest({
-        swSrc: '/src-sw.js', 
+        swSrc: './client/src-sw.js', 
         swDest: 'service-worker.js',
       }),
     ],
