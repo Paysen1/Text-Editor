@@ -24,11 +24,14 @@ module.exports = () => {
         title: 'Webpack Plugin',
       }),
       new WebpackPwaManifest ({
+        inject: true,
         name: 'Text-Editor',
         short_name: 'J.A.T.E',
         description: 'This is a text editor',
         background_color: '#225ca3',
         theme_color: '#225ca3',
+        start_url: '/',
+        publicPath: '/',
         icons: [
           {
             src: path.resolve(__dirname, 'src/images/logo.png' ),
