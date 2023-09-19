@@ -10,16 +10,16 @@ module.exports = () => {
   return {
     mode: 'development',
     entry: {
-      main: './client/src/js/index.js',
-      install: './client/src/js/install.js'
+      main: './src/js/index.js',
+      install: './src/js/install.js'
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'client', 'dist'),
+      path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './client/index.html', //says doesnt exist?
+        template: './index.html', //says doesnt exist?
         filename: 'index.html',
         title: 'Webpack Plugin',
       }),
@@ -38,7 +38,7 @@ module.exports = () => {
         ]
       }),
       new InjectManifest({
-        swSrc: './client/src-sw.js', 
+        swSrc: './src-sw.js', 
         swDest: 'service-worker.js',
       }),
     ],
